@@ -3,6 +3,7 @@
 
 #include <Services/queryservice.h>
 #include <Models/authmodel.h>
+#include <Views/universityview.h>
 
 #include <QWidget>
 #include <QPushButton>
@@ -42,6 +43,8 @@ private:
 private slots:
     void createUI();
     void authorize();
+    void failureHandler(const QString error);
+    void successHandler();
 };
 
 #endif // AUTHVIEW_H

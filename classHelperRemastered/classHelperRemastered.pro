@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,9 +27,12 @@ SOURCES += \
         main.cpp \
     Views/authview.cpp \
     Services/queryservice.cpp \
-    Models/authmodel.cpp
+    Models/authmodel.cpp \
+    Views/universityview.cpp
 
 HEADERS += \
     Views/authview.h \
     Services/queryservice.h \
-    Models/authmodel.h
+    Models/authmodel.h \
+    exception.h \
+    Views/universityview.h

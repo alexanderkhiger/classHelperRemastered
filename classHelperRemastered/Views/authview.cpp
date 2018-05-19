@@ -1,8 +1,10 @@
 #include "authview.h"
 
 AuthView::AuthView(QueryService *service) {
-    model = new AuthModel(service);
     createUI();
+    model = new AuthModel(service);
+    connect(model, SIGNAL(failure(QString)), this, SLOT(failureHandler(QString)));
+    connect(model, SIGNAL(success()), this, SLOT(successHandler()));
 }
 
 AuthView::~AuthView() {
@@ -92,7 +94,16 @@ void AuthView::createUI() {
 }
 
 void AuthView::authorize() {
-    if (model) {
-        model->authorize();
-    }
+    if (model && !usernameField->text().isEmpty() && !passwordField->text().isEmpty() && !databaseField->text().isEmpty() && !hostnameField->text().isEmpty())
+        model->authorize(usernameField->text(), passwordField->text(), databaseField->text(), hostnameField->text());
+}
+
+void AuthView::failureHandler(const QString error) {
+    actionsLog->setText(error);
+}
+
+void AuthView::successHandler() {
+    UniversityView *frm = new UniversityView;
+    frm->show();
+    this->close();
 }
