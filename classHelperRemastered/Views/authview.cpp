@@ -13,8 +13,8 @@ AuthView::~AuthView() {
 
 void AuthView::createUI() {
 
-    this->setMinimumHeight(250);
-    this->resize(250,250);
+    setMinimumHeight(250);
+    resize(250,250);
 
     usernameField = new QLineEdit;
     passwordField = new QLineEdit;
@@ -70,7 +70,7 @@ void AuthView::createUI() {
     internalRightVLayout = new QVBoxLayout();
     internalHLayout = new QHBoxLayout();
 
-    this->setLayout(externalVLayout);
+    setLayout(externalVLayout);
 
     internalLeftVLayout->addWidget(usernameLabel);
     internalLeftVLayout->addWidget(passwordLabel);
@@ -105,5 +105,5 @@ void AuthView::failureHandler(const QString error) {
 void AuthView::successHandler() {
     UniversityView *frm = new UniversityView;
     frm->show();
-    this->close();
+    close();
 }
