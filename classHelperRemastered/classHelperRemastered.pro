@@ -25,7 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        authview.cpp
+    Views/authview.cpp \
+    Services/queryservice.cpp \
+    Models/authmodel.cpp
 
 HEADERS += \
-        authview.h
+    Views/authview.h \
+    Services/queryservice.h \
+    Models/authmodel.h

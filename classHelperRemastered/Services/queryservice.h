@@ -3,13 +3,13 @@
 
 #include <QObject>
 
-class QueryService : public QObject
-{
+class QueryService : public QObject {
     Q_OBJECT
 public:
-    explicit QueryService(QObject *parent = nullptr);
+    explicit QueryService();
 
 signals:
+    void error(const QString error);
 
 public slots:
 };
