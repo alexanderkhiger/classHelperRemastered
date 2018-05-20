@@ -2,6 +2,7 @@
 
 AuthView::AuthView(QueryService *service) {
     createUI();
+    this->service = service;
     model = new AuthModel(service);
     connect(model, SIGNAL(failure(QString)), this, SLOT(failureHandler(QString)));
     connect(model, SIGNAL(success()), this, SLOT(successHandler()));
@@ -13,8 +14,8 @@ AuthView::~AuthView() {
 
 void AuthView::createUI() {
 
-    this->setMinimumHeight(250);
-    this->resize(250,250);
+    setMinimumHeight(250);
+    resize(250,250);
 
     usernameField = new QLineEdit;
     passwordField = new QLineEdit;
@@ -70,7 +71,7 @@ void AuthView::createUI() {
     internalRightVLayout = new QVBoxLayout();
     internalHLayout = new QHBoxLayout();
 
-    this->setLayout(externalVLayout);
+    setLayout(externalVLayout);
 
     internalLeftVLayout->addWidget(usernameLabel);
     internalLeftVLayout->addWidget(passwordLabel);
@@ -103,7 +104,7 @@ void AuthView::failureHandler(const QString error) {
 }
 
 void AuthView::successHandler() {
-    UniversityView *frm = new UniversityView;
+    UniversityView *frm = new UniversityView(service);
     frm->show();
-    this->close();
+    close();
 }

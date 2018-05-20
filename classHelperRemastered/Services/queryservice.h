@@ -26,9 +26,11 @@ private:
     QSqlDatabase db;
 
 signals:
+    void tableModelReceived(QSqlTableModel *model);
 
 public slots:
     void authorize(const QString login, const QString password, const QString database, const QString hostname);
+    QSqlTableModel* getTableModel(QString tableName);
 };
 
 #endif // QUERYSERVICE_H
