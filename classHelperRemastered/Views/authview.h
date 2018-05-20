@@ -3,7 +3,7 @@
 
 #include <Services/queryservice.h>
 #include <Models/authmodel.h>
-#include <Views/universityview.h>
+#include <Views/DatabaseTableViews/universityview.h>
 
 #include <QWidget>
 #include <QPushButton>
@@ -39,6 +39,7 @@ private:
     QVBoxLayout *internalRightVLayout;
     QHBoxLayout *internalHLayout;
     AuthModel *model;
+    QueryService *service;
 
 private slots:
     void createUI();

@@ -2,6 +2,7 @@
 
 AuthView::AuthView(QueryService *service) {
     createUI();
+    this->service = service;
     model = new AuthModel(service);
     connect(model, SIGNAL(failure(QString)), this, SLOT(failureHandler(QString)));
     connect(model, SIGNAL(success()), this, SLOT(successHandler()));
@@ -103,7 +104,7 @@ void AuthView::failureHandler(const QString error) {
 }
 
 void AuthView::successHandler() {
-    UniversityView *frm = new UniversityView;
+    UniversityView *frm = new UniversityView(service);
     frm->show();
     close();
 }

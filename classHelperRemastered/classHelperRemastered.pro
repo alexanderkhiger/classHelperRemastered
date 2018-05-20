@@ -28,18 +28,24 @@ SOURCES += \
     Views/authview.cpp \
     Services/queryservice.cpp \
     Models/authmodel.cpp \
-    Views/universityview.cpp \
     Components/customlineedit.cpp \
-    Components/customdroparea.cpp
+    Components/customdroparea.cpp \
+    Views/DatabaseTableViews/universityview.cpp \
+    Models/DatabaseTableModels/universitymodel.cpp \
+    Views/mainwindowview.cpp
 
 HEADERS += \
     Views/authview.h \
     Services/queryservice.h \
     Models/authmodel.h \
     exception.h \
-    Views/universityview.h \
     Components/customdoublevalidator.h \
     Components/customsqlquerymodel.h \
     Components/customtableview.h \
     Components/customlineedit.h \
-    Components/customdroparea.h
+    Components/customdroparea.h \
+    Views/databasetableviews/universityview.h \
+    Views/DatabaseTableViews/commondatabasetableview.h \
+    Models/DatabaseTableModels/commondatabasetablemodel.h \
+    Models/DatabaseTableModels/universitymodel.h \
+    Views/mainwindowview.h
