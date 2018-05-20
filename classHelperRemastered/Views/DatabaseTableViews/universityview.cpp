@@ -12,12 +12,10 @@ UniversityView::UniversityView(QueryService *service) {
     createConnections();
 }
 
-bool UniversityView::eventFilter(QObject *obj, QEvent *event)
-{
+bool UniversityView::eventFilter(QObject *obj, QEvent *event) {
 
     if (event->type() == QEvent::MouseButtonDblClick) {
         QMouseEvent * mouseEvent = static_cast <QMouseEvent *> (event);
-
         if (mouseEvent -> button() == Qt::LeftButton) {
             changeControlsState();
         }
