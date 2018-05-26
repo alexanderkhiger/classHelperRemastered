@@ -1,6 +1,7 @@
 #include "mainwindowview.h"
 
-MainWindowView::MainWindowView(QString uID, QString uName, QString uShortname, QWidget *parent) {
+MainWindowView::MainWindowView(QueryService *service, QString uID, QString uName, QString uShortname, QWidget *parent) {
+    this->service = service;
     this->parent = parent;
     receivedID = uID;
     receivedName = uName;
@@ -76,19 +77,35 @@ void MainWindowView::back() {
 }
 
 void MainWindowView::setWorkFieldAsCentral() {
-
+//    if (centralWidget()->objectName()!="workfield") {
+//        workField = new WorkFieldView(receivedID, receivedName, receivedShortname);
+//        workField->setObjectName("workField");
+//        this->setCentralWidget(myWorkField);
+//    }
 }
 
 void MainWindowView::setTableEditorAsCentral() {
-
+//    if (centralWidget()->objectName()!="tableEditor") {
+//        tableEditor = new TableEditorView(receivedID, receivedName, receivedShortname);
+//        tableEditor->setObjectName("tableEditor");
+//        this->setCentralWidget(tableEditor);
+//    }
 }
 
 void MainWindowView::setOutputToFileAsCentral() {
-
+//    if (centralWidget()->objectName()!="outputToFile") {
+//        outputToFile = new OutputToFileView(receivedID, receivedName, receivedShortname);
+//        outputToFile->setObjectName("outputToFile");
+//        this->setCentralWidget(outputToFile);
+//    }
 }
 
 void MainWindowView::setFileProcessingAsCentral() {
-
+//    if (centralWidget()->objectName()!="fileProcessing") {
+//        fileProcessing = new FileProcessingView(receivedID, receivedName, receivedShortname);
+//        fileProcessing->setObjectName("fileProcessing");
+//        this->setCentralWidget(fileProcessing);
+//    }
 }
 
 

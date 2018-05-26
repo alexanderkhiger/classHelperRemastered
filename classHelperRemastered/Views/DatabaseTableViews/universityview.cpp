@@ -228,7 +228,7 @@ void UniversityView::successHandler() {
     QString nameData = tableView->model()->data(nameIndex).toString();
     QString shortnameData = tableView->model()->data(shortnameIndex).toString();
 
-    MainWindowView *frm = new MainWindowView(idData, nameData, shortnameData, this);
+    MainWindowView *frm = new MainWindowView(service, idData, nameData, shortnameData, this);
     frm->show();
     hide();
 }
