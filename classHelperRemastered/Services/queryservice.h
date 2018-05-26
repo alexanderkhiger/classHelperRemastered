@@ -17,6 +17,7 @@
 
 class QueryService : public QObject {
     Q_OBJECT
+
 public:
     explicit QueryService();
 

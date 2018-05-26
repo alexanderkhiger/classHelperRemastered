@@ -14,8 +14,6 @@ class MainWindowView : public QMainWindow {
 public:
     explicit MainWindowView(QueryService *service, QString uID, QString uName, QString uShortname, QWidget *parent);
 
-signals:
-
 private slots:
     void createUI();
     void back();
@@ -23,8 +21,6 @@ private slots:
     void setTableEditorAsCentral();
     void setOutputToFileAsCentral();
     void setFileProcessingAsCentral();
-
-public slots:
 
 private:
     QueryService *service;
