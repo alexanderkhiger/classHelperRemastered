@@ -4,8 +4,8 @@ AuthView::AuthView(QueryService *service) {
     createUI();
     this->service = service;
     model = new AuthModel(service);
-    connect(model, SIGNAL(failure(QString)), this, SLOT(failureHandler(QString)));
-    connect(model, SIGNAL(success()), this, SLOT(successHandler()));
+    connect(model, SIGNAL(failure(QSqlError)), this, SLOT(failureHandler(QSqlError)));
+    connect(model, SIGNAL(success()), this, SLOT(completionHandler()));
 }
 
 AuthView::~AuthView() {
@@ -99,11 +99,11 @@ void AuthView::authorize() {
         model->authorize(usernameField->text(), passwordField->text(), databaseField->text(), hostnameField->text());
 }
 
-void AuthView::failureHandler(const QString error) {
-    actionsLog->setText(error);
+void AuthView::failureHandler(QSqlError error) {
+    actionsLog->setText(error.text());
 }
 
-void AuthView::successHandler() {
+void AuthView::completionHandler() {
     UniversityView *frm = new UniversityView(service);
     frm->show();
     close();

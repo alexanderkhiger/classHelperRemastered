@@ -32,7 +32,10 @@ SOURCES += \
     Components/customdroparea.cpp \
     Views/DatabaseTableViews/universityview.cpp \
     Models/DatabaseTableModels/universitymodel.cpp \
-    Views/mainwindowview.cpp
+    Views/mainwindowview.cpp \
+    Views/CentralWidgets/fileprocessingview.cpp \
+    Models/CentralWidgets/fileprocessingmodel.cpp \
+    Views/dataselectorview.cpp
 
 HEADERS += \
     Views/authview.h \
@@ -48,4 +51,7 @@ HEADERS += \
     Views/DatabaseTableViews/commondatabasetableview.h \
     Models/DatabaseTableModels/commondatabasetablemodel.h \
     Models/DatabaseTableModels/universitymodel.h \
-    Views/mainwindowview.h
+    Views/mainwindowview.h \
+    Views/CentralWidgets/fileprocessingview.h \
+    Models/CentralWidgets/fileprocessingmodel.h \
+    Views/dataselectorview.h

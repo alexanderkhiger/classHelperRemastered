@@ -62,8 +62,8 @@ private slots:
     virtual void addRecord() = 0;
     virtual void editRecord() = 0;
 
-    virtual void successHandler() = 0;
-    virtual void errorHandler(QSqlError error) = 0;
+    virtual void completionHandler() = 0;
+    virtual void failureHandler(QSqlError error) = 0;
 };
 
 #endif // COMMONDATABASETABLEVIEW_H

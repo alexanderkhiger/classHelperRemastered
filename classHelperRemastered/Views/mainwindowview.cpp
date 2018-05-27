@@ -101,11 +101,11 @@ void MainWindowView::setOutputToFileAsCentral() {
 }
 
 void MainWindowView::setFileProcessingAsCentral() {
-//    if (centralWidget()->objectName()!="fileProcessing") {
-//        fileProcessing = new FileProcessingView(receivedID, receivedName, receivedShortname);
-//        fileProcessing->setObjectName("fileProcessing");
-//        this->setCentralWidget(fileProcessing);
-//    }
+    if (this->centralWidget() == 0 || centralWidget()->objectName()!="fileProcessing") {
+        fileProcessing = new FileProcessingView(receivedID, service);
+        fileProcessing->setObjectName("fileProcessing");
+        this->setCentralWidget(fileProcessing);
+    }
 }
 
 

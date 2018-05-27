@@ -2,18 +2,19 @@
 #define EXCEPTION_H
 
 #include <QObject>
+#include <QSqlError>
 
 class Exception {
 
 public:
-    Exception(QString errorInfo) {
+    Exception(QSqlError errorInfo) {
         this->errorInfo = errorInfo;
     }
-    QString getErrorInfo() {
+    QSqlError getErrorInfo() {
         return this->errorInfo;
     }
 private:
-    QString errorInfo;
+    QSqlError errorInfo;
 };
 
 #endif // EXCEPTION_H

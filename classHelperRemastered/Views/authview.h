@@ -44,8 +44,8 @@ private:
 private slots:
     void createUI();
     void authorize();
-    void failureHandler(const QString error);
-    void successHandler();
+    void failureHandler(QSqlError error);
+    void completionHandler();
 };
 
 #endif // AUTHVIEW_H

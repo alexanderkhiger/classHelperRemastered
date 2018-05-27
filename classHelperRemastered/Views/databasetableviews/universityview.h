@@ -45,8 +45,8 @@ private slots:
     void addRecord();
     void editRecord();
 
-    void successHandler();
-    void errorHandler(QSqlError error);
+    void completionHandler();
+    void failureHandler(QSqlError error);
 
     void changedFrom(const QItemSelection &selected);
     void changedTo(const QModelIndex &bIndex);

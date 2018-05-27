@@ -208,7 +208,7 @@ void UniversityView::editRecord() {
     }
     else {
         if (!tableModel->submitAll()) {
-            emit errorHandler(tableModel->lastError());
+            emit failureHandler(tableModel->lastError());
             tableModel->revertAll();
             universityAfterUpdate = universityBeforeUpdate;
             return;
@@ -219,7 +219,7 @@ void UniversityView::editRecord() {
     }
 }
 
-void UniversityView::successHandler() {
+void UniversityView::completionHandler() {
     QModelIndex idIndex = tableView->model()->index(tableView->currentIndex().row(),0,QModelIndex());
     QModelIndex nameIndex = tableView->model()->index(tableView->currentIndex().row(),1,QModelIndex());
     QModelIndex shortnameIndex = tableView->model()->index(tableView->currentIndex().row(),2,QModelIndex());
@@ -233,7 +233,7 @@ void UniversityView::successHandler() {
     hide();
 }
 
-void UniversityView::errorHandler(QSqlError error) {
+void UniversityView::failureHandler(QSqlError error) {
     QMessageBox::StandardButton errorMsg;
     errorMsg = QMessageBox::critical(this,tr("Ошибка"),error.text(),QMessageBox::Ok);
 }
@@ -249,12 +249,12 @@ void UniversityView::changedTo(const QModelIndex &bIndex) {
 
 void UniversityView::createConnections() {
     connect(exitButton, SIGNAL(clicked(bool)), this, SLOT(close()));
-    connect(confirmChoiceButton, SIGNAL(clicked(bool)), this, SLOT(successHandler()));
+    connect(confirmChoiceButton, SIGNAL(clicked(bool)), this, SLOT(completionHandler()));
     connect(tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(recordWasClicked()));
     connect(deleteButton,SIGNAL(clicked(bool)),this,SLOT(deleteRecord()));
     connect(addButton,SIGNAL(clicked(bool)),this,SLOT(changeSubMenuState()));
     connect(confirmAdditionButton,SIGNAL(clicked(bool)),this,SLOT(addRecord()));
-    connect(model,SIGNAL(failure(QSqlError)),this,SLOT(errorHandler(QSqlError)));
+    connect(model,SIGNAL(failure(QSqlError)),this,SLOT(failureHandler(QSqlError)));
     connect(tableView->itemDelegate(),SIGNAL(closeEditor(QWidget*,QAbstractItemDelegate::EndEditHint)),this,SLOT(editRecord()));
     connect(tableView->itemDelegate(),SIGNAL(closeEditor(QWidget*,QAbstractItemDelegate::EndEditHint)),this,SLOT(changeControlsState()));
     connect(tableView->selectionModel(),SIGNAL(selectionChanged(QItemSelection,QItemSelection)),this,SLOT(changedFrom(QItemSelection)));

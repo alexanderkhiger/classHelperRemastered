@@ -2,6 +2,8 @@
 #define MAINWINDOWVIEW_H
 
 #include <Services/queryservice.h>
+#include <Views/CentralWidgets/fileprocessingview.h>
+
 #include <QMainWindow>
 #include <QToolBar>
 #include <QToolButton>
@@ -28,6 +30,8 @@ private:
     QString receivedName;
     QString receivedShortname;
     QWidget *parent;
+
+    FileProcessingView *fileProcessing;
 
     QToolBar *leftBar;
 

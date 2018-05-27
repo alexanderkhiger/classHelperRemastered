@@ -17,7 +17,7 @@ void QueryService::authorize(const QString login, const QString password, const 
     db.setUserName(login);
     db.setPassword(password);
     if (!db.open())
-        throw Exception(tr("Проверьте правильность введенных данных"));
+        throw Exception(db.lastError());
 }
 
 QSqlTableModel* QueryService::getTableModel(QString tableName) {

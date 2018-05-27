@@ -15,7 +15,7 @@ private:
     QueryService *service;
 
 signals:
-    void failure(const QString failure);
+    void failure(QSqlError error);
     void success();
 
 public slots:
